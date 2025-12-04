@@ -1,5 +1,4 @@
 #include "sonarqube_test.h"
-
 // 测试1：内存泄漏 - squid:S1274
 void memory_leak_test(void) {
     char *buffer = malloc(MAX_BUFFER_SIZE);
@@ -68,8 +67,7 @@ label:
     if (a > 10) {
         // 空的if块
     }
-    
-    // 魔数 - squid:S109
+      // 魔数 - squid:S109
     int array_size = 100;
     for (int i = 0; i < 100; i++) { // 应该使用具名常量
         // 循环体
@@ -83,6 +81,7 @@ int dead_code_function(int x) {
 
 // 测试6：资源泄漏
 void resource_leak_test(void) {
+    int test1;
     FILE *file = fopen("test.txt", "r");
     if (file) {
         char buffer[100];
